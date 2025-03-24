@@ -1,6 +1,9 @@
 name: Docker Build and Release
 on: [ push ]
 env:
+IMAGE_REGISTRY = 
+REGISTRY_USER = 
+TEST_REGISTRY =
 #### An dieser Stelle müssen eure persönlichen Umgebungsvariablen eingetragen werden
   # Tipp: Die Token/der API-Key werden als Secrets in den Repository-Settings eingetragen und hier referenziert.
   GITHUB_ACCESSTOKEN: ${{ secrets.GITHUB_ACCESSTOKEN }}
