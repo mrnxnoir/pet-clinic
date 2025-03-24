@@ -10,7 +10,9 @@ build_dev_artifacts:
   image: maven:3.6.0-jdk-8
   stage: build_artifacts
   script:
-    # Hier die Befehle um die App zu bauen
+    - mvn package
+    - cd target
+    - ls
   artifacts:
     paths:
       - target/*
@@ -22,5 +24,8 @@ push_dev_docker_image:
   services:
     - docker:19.03.1-dind
   script:
-    # Hier die Befehle zum Docker Image bauen und pushen
+    - echo Stage Push
+    - docker build -t test.de/pet-clinic:dev-$CI_PIPELINE_ID .
+    - docker login -u test -p $password
+    - docker push sss
   allow_failure: false
